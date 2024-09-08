@@ -247,7 +247,7 @@ let
       mergeSnapshotEntries = acc: x:
         lib.recursiveUpdate acc (snapshotEntry x);
     in
-    lib.foldl mergeSnapshotEntries { } flattened;
+    lib.foldl' mergeSnapshotEntries { } flattened;
 
   # Returns either the package-lock or the npm-shrinkwrap. If none is found
   # returns null.
